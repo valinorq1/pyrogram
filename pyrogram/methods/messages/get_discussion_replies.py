@@ -28,6 +28,7 @@ class GetDiscussionReplies:
         chat_id: Union[int, str],
         message_id: int,
         limit: int = 0,
+        min_id: int = 0
     ) -> Optional[AsyncGenerator["types.Message", None]]:
         """Get the message replies of a discussion thread.
 
@@ -65,7 +66,7 @@ class GetDiscussionReplies:
                     add_offset=current,
                     limit=limit,
                     max_id=0,
-                    min_id=0,
+                    min_id=min_id,
                     hash=0
                 )
             )
